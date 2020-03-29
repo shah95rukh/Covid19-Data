@@ -9,18 +9,6 @@
 import UIKit
 import EMTNeumorphicView
 
-struct APIdetails: Decodable {
-    let Date: String
-    let Countries: [Covid]
-}
-
-struct Covid: Decodable {
-    let Country: String
-    let TotalConfirmed: Int
-    let TotalRecovered: Int
-    let TotalDeaths: Int
-}
-
 class TableViewController: UITableViewController {
     var countryArray: [String] = []
     var totalConfirmedArray: [Int] = []
@@ -34,61 +22,35 @@ class TableViewController: UITableViewController {
         super.viewDidLoad()
         view.backgroundColor = UIColor.offWhite
         
-        fetchJokesJSON { (result) in
+        // Fetches Covid19 data and appends it into arrays
+        CovidNetworkManager().fetchCovidJSON { (result) in
             switch result {
-            case .success(let jokes):
-                jokes.forEach({ (joke) in
-                    if !(joke.Country.isEmpty) {
-                        self.countryArray.append(joke.Country)
-                        self.totalConfirmedArray.append(joke.TotalConfirmed)
-                        self.totalRecoveredArray.append(joke.TotalRecovered)
-                        self.totalDeathsArray.append(joke.TotalDeaths)
+            case .success(let covidDataList):
+                covidDataList.forEach({ (covidData) in
+                    if !(covidData.Country.isEmpty) {
+                        self.countryArray.append(covidData.Country)
+                        self.totalConfirmedArray.append(covidData.TotalConfirmed)
+                        self.totalRecoveredArray.append(covidData.TotalRecovered)
+                        self.totalDeathsArray.append(covidData.TotalDeaths)
                     }
                 })
-                
-                // reloads the table
                 DispatchQueue.main.async { self.covidTableList.reloadData() }
             case .failure(let error):
-                print("Failed to fetch jokes: ", error)
+                print("Failed to fetch covid data from an api: ", error)
             }
         }
     }
     
-    fileprivate func fetchJokesJSON(completion: @escaping (Result<[Covid], Error>) -> ()) {
-        guard let jokeUrl = URL(string: "https://api.covid19api.com/summary") else {
-            return
-        }
-        
-        URLSession.shared.dataTask(with: jokeUrl) { (data, response, error) in
-            if let error = error {
-                completion(.failure(error))
-                return
-            }
-            
-            // Upon success tries decoding returned json
-            guard let data = data else { return }
-            do {
-                let jokes = try JSONDecoder().decode(APIdetails.self, from: data)
-                completion(.success(jokes.Countries.sorted(by: { $0.TotalConfirmed > $1.TotalConfirmed })))
-            } catch let jsonError {
-                completion(.failure(jsonError))
-            }
-        }.resume()
-        
-    }
 
     // MARK: - Table view data source
 
-
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
         return countryArray.count
     }
 
-    
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! CovidDataCell
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as? CovidDataCell else { fatalError("Issue dequeuing cell") }
         cell.countryLabel.text = countryArray[indexPath.row]
         cell.confirmedCasesLabel.text = "\(totalConfirmedArray[indexPath.row])"
         cell.recoveredCasesLabel.text = "\(totalRecoveredArray[indexPath.row])"
