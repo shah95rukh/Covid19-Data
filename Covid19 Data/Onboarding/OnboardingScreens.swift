@@ -69,7 +69,7 @@ class OnboardingScreens: UIViewController {
         start.titleLabel?.font = UIFont(name: "Futura-Bold", size: 20)
         start.setTitleColor(.black, for: .normal)
         start.translatesAutoresizingMaskIntoConstraints = false
-        start.addTarget(self, action: #selector(tapped(_:)), for: .touchUpInside)
+        start.addTarget(self, action: #selector(tapped), for: .touchUpInside)
         return start
     }()
     
@@ -120,10 +120,17 @@ class OnboardingScreens: UIViewController {
         ])
     }
     
-    @objc func tapped(_ button: UIButton) {
-       // performSegue(withIdentifier: "data", sender: self)
+    @objc func tapped() {
+        
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let vc = storyboard.instantiateViewController(withIdentifier: "HomeVC") as! TableViewController
+        self.view.window?.rootViewController = vc
+        self.view.window?.makeKeyAndVisible()
+        
+//        let userDefaults = UserDefaults.standard
+//        userDefaults.set(true, forKey: "onboardingComplete")
+//        userDefaults.synchronize()
     }
-    
 }
 
 extension UIColor {

@@ -9,7 +9,7 @@
         <!--Onboarding View Controller-->
         <scene sceneID="g7S-El-hvn">
             <objects>
-                <pageViewController restorationIdentifier="Main" storyboardIdentifier="Main" autoresizesArchivedViewToFullSize="NO" transitionStyle="scroll" navigationOrientation="horizontal" spineLocation="none" id="Y4z-Ng-2uK" customClass="OnboardingViewController" customModule="Covid19_Data" customModuleProvider="target" sceneMemberID="viewController"/>
+                <pageViewController storyboardIdentifier="OnboardingVC" autoresizesArchivedViewToFullSize="NO" transitionStyle="scroll" navigationOrientation="horizontal" spineLocation="none" id="Y4z-Ng-2uK" customClass="OnboardingViewController" customModule="Covid19_Data" customModuleProvider="target" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5a-bo-UHs" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="668" y="-86"/>
@@ -17,7 +17,7 @@
         <!--Table View Controller-->
         <scene sceneID="DM9-2W-Uqo">
             <objects>
-                <tableViewController id="9cw-vR-7HO" customClass="TableViewController" customModule="Covid19_Data" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="HomeVC" id="9cw-vR-7HO" customClass="TableViewController" customModule="Covid19_Data" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="6ZR-oI-2Vd">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
