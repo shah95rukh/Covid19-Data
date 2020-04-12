@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16096" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Y4z-Ng-2uK">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16096" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="8vd-6X-Rsh">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16086"/>
@@ -22,6 +22,8 @@
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="6ZR-oI-2Vd">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <color key="separatorColor" red="0.17299842980082508" green="0.22823709136054787" blue="0.5" alpha="0.5" colorSpace="custom" customColorSpace="sRGB"/>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="cell" rowHeight="56" id="H2W-DV-VHD" customClass="CovidDataCell" customModule="Covid19_Data" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="28" width="414" height="56"/>
@@ -30,6 +32,7 @@
                                     <rect key="frame" x="0.0" y="0.0" width="383" height="56"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </tableViewCellContentView>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -46,20 +49,38 @@
             </objects>
             <point key="canvasLocation" x="2428.985507246377" y="-86.383928571428569"/>
         </scene>
-        <!--View Controller-->
+        <!--Lottie View Controller-->
         <scene sceneID="IVx-rH-gtp">
             <objects>
-                <viewController id="hkB-VX-Esc" sceneMemberID="viewController">
+                <viewController id="hkB-VX-Esc" customClass="LottieViewController" customModule="Covid19_Data" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="qLH-80-xoQ">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="HFu-08-6qS" customClass="AnimationView" customModule="Lottie">
+                                <rect key="frame" x="41" y="282" width="332" height="332"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="animationName" value="17476-loading"/>
+                                </userDefinedRuntimeAttributes>
+                            </view>
+                        </subviews>
                         <color key="backgroundColor" systemColor="systemPinkColor" red="1" green="0.1764705882" blue="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="HFu-08-6qS" firstAttribute="leading" secondItem="r6U-GB-UdB" secondAttribute="leading" constant="41" id="5Os-Ps-NC5"/>
+                            <constraint firstItem="HFu-08-6qS" firstAttribute="centerY" secondItem="qLH-80-xoQ" secondAttribute="centerY" id="C7e-ZR-anQ"/>
+                            <constraint firstItem="HFu-08-6qS" firstAttribute="top" secondItem="r6U-GB-UdB" secondAttribute="top" constant="238" id="UUd-Ax-RVb"/>
+                            <constraint firstItem="HFu-08-6qS" firstAttribute="centerX" secondItem="qLH-80-xoQ" secondAttribute="centerX" id="r7i-AR-bJI"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="r6U-GB-UdB"/>
                     </view>
+                    <connections>
+                        <outlet property="animationView" destination="HFu-08-6qS" id="pny-ph-hZ4"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8cd-fp-TR5" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3265" y="-86"/>
+            <point key="canvasLocation" x="3263.7681159420295" y="-86.383928571428569"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="cfF-at-v1Z">
@@ -69,6 +90,7 @@
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" largeTitles="YES" id="G2J-ro-UHg">
                         <rect key="frame" x="0.0" y="44" width="414" height="96"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <color key="tintColor" red="0.93323183060000003" green="0.93339174989999996" blue="0.93322181699999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <color key="barTintColor" red="0.29172784089999998" green="0.38310253620000001" blue="0.81970936059999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </navigationBar>
                     <nil name="viewControllers"/>

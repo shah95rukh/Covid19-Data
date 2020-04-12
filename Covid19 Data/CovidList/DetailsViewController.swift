@@ -8,6 +8,7 @@
 
 import UIKit
 import FlagKit
+import Lottie
 
 class DetailsViewController: UIViewController {
     var totalDataRow: [String: Int] = [:]
@@ -46,7 +47,7 @@ class DetailsViewController: UIViewController {
         }()
         let dataTag: UILabel = {
             let label = UILabel()
-            label.textColor = .offWhite
+            label.textColor = .white
             label.textAlignment = .center
             label.numberOfLines = 0
             label.font = UIFont.systemFont(ofSize: 11, weight: .medium)
@@ -138,7 +139,7 @@ class DetailsViewController: UIViewController {
             EntireStackView.topAnchor.constraint(equalTo: view.topAnchor, constant: 150),
             EntireStackView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 30),
             EntireStackView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -30),
-            EntireStackView.heightAnchor.constraint(equalToConstant: 480),
+            EntireStackView.heightAnchor.constraint(equalToConstant: 520),
         ])
     }
 }

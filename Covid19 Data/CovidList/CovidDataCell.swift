@@ -27,7 +27,7 @@ class CovidDataCell: UITableViewCell {
         let label = UILabel()
         label.textColor = .black
         label.textAlignment = .right
-        label.font = UIFont.systemFont(ofSize: 17, weight: .regular)
+        label.font = UIFont.systemFont(ofSize: 18, weight: .regular)
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
@@ -35,7 +35,7 @@ class CovidDataCell: UITableViewCell {
         let label = UILabel()
         label.textColor = .black
         label.textAlignment = .right
-        label.font = UIFont.systemFont(ofSize: 17, weight: .regular)
+        label.font = UIFont.systemFont(ofSize: 18, weight: .regular)
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
@@ -51,7 +51,6 @@ class CovidDataCell: UITableViewCell {
         
         NSLayoutConstraint.activate([
             flag.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 15),
-            //flag.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -8),
             flag.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 20),
             flag.widthAnchor.constraint(equalToConstant: 32),
             flag.heightAnchor.constraint(equalToConstant: 25),
@@ -63,11 +62,11 @@ class CovidDataCell: UITableViewCell {
             
             deathsLabel.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 15),
             deathsLabel.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -15),
-            deathsLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -10),
+            deathsLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -20),
             
             confimredLabel.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 15),
             confimredLabel.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -15),
-            confimredLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -90),
+            confimredLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -105),
         ])
         
     }

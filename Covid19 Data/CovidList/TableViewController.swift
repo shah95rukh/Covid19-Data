@@ -8,9 +8,11 @@
 
 import UIKit
 import FlagKit
+import Lottie
 
 class TableViewController: UITableViewController, UISearchResultsUpdating {
 
+    let animationView = AnimationView()
     var covidDataArray = [CovidDataModel]()
     var flagImage = UIImage()
     @IBOutlet var covidTableList: UITableView!
@@ -40,14 +42,22 @@ class TableViewController: UITableViewController, UISearchResultsUpdating {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        view.backgroundColor = UIColor.offWhite
+        view.backgroundColor = UIColor.white
+        animationView.animation = Animation.named("17476-loading")
+        animationView.frame = CGRect(x: 0, y: 0, width: 100, height: 50)
+        animationView.center.x = view.center.x
+        animationView.center.y = view.center.y - 100
+        animationView.contentMode = .scaleAspectFill
+        view.addSubview(animationView)
+        animationView.play()
         
         searchController = UISearchController(searchResultsController: nil)
         searchController.searchResultsUpdater = self
         searchController.obscuresBackgroundDuringPresentation = false
         searchController.searchBar.sizeToFit()
         searchController.searchBar.placeholder = "Search by country"
-        searchController.searchBar.barTintColor = .black
+        searchController.searchBar.barTintColor = .white
+        searchController.searchBar.searchTextField.leftView?.tintColor = .white
         navigationItem.searchController = searchController
         definesPresentationContext = true
         
@@ -61,7 +71,9 @@ class TableViewController: UITableViewController, UISearchResultsUpdating {
                         self.covidDataArray.append(CovidDataModel(CountryCodeArray: covidData.CountryCode, countryArray: covidData.Country, totalConfirmedArray: covidData.TotalConfirmed, totalRecoveredArray: covidData.TotalRecovered, totalDeathsArray: covidData.TotalDeaths, newConfirmedArray: covidData.NewConfirmed, newRecoveredArray: covidData.NewRecovered, newDeathsArray: covidData.NewDeaths))
                     }
                 })
-                DispatchQueue.main.async { self.covidTableList.reloadData() }
+                DispatchQueue.main.async {
+                    self.covidTableList.reloadData()
+                }
             case .failure(let error):
                 print("Failed to fetch covid data from an api: ", error)
             }
@@ -86,7 +98,7 @@ class TableViewController: UITableViewController, UISearchResultsUpdating {
             let label = UILabel()
             label.text = "Country"
             label.textColor = .white
-            label.font = UIFont(name: "Futura", size: 14)
+            label.font = UIFont.systemFont(ofSize: 14, weight: .medium)
             label.translatesAutoresizingMaskIntoConstraints = false
             return label
         }()
@@ -95,7 +107,7 @@ class TableViewController: UITableViewController, UISearchResultsUpdating {
             let label = UILabel()
             label.text = "Confirmed"
             label.textColor = .white
-            label.font = UIFont(name: "Futura", size: 14)
+            label.font = UIFont.systemFont(ofSize: 14, weight: .medium)
             label.translatesAutoresizingMaskIntoConstraints = false
             return label
         }()
@@ -104,7 +116,7 @@ class TableViewController: UITableViewController, UISearchResultsUpdating {
             let label = UILabel()
             label.text = "Deaths"
             label.textColor = .white
-            label.font = UIFont(name: "Futura", size: 14)
+            label.font = UIFont.systemFont(ofSize: 14, weight: .medium)
             label.translatesAutoresizingMaskIntoConstraints = false
             return label
         }()
@@ -119,11 +131,11 @@ class TableViewController: UITableViewController, UISearchResultsUpdating {
             
             deathsTag.topAnchor.constraint(equalTo: sectionView.topAnchor, constant: 7),
             deathsTag.bottomAnchor.constraint(equalTo: sectionView.bottomAnchor, constant: -7),
-            deathsTag.trailingAnchor.constraint(equalTo: sectionView.trailingAnchor, constant: -42),
+            deathsTag.trailingAnchor.constraint(equalTo: sectionView.trailingAnchor, constant: -49),
             
             confimredTag.topAnchor.constraint(equalTo: sectionView.topAnchor, constant: 7),
             confimredTag.bottomAnchor.constraint(equalTo: sectionView.bottomAnchor, constant: -7),
-            confimredTag.trailingAnchor.constraint(equalTo: deathsTag.leadingAnchor, constant: -32),
+            confimredTag.trailingAnchor.constraint(equalTo: deathsTag.leadingAnchor, constant: -38),
             
         ])
         return sectionView
@@ -149,6 +161,10 @@ class TableViewController: UITableViewController, UISearchResultsUpdating {
         cell.countryLabel.text = covid.countryArray
         cell.confimredLabel.text = "\(covid.totalConfirmedArray)"
         cell.deathsLabel.text = "\(covid.totalDeathsArray)"
+        
+        self.animationView.stop()
+        self.animationView.removeFromSuperview()
+        
         return cell
     }
     

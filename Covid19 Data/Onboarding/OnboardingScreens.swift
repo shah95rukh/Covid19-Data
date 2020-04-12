@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Lottie
 
 class OnboardingScreens: UIViewController {
     
@@ -69,9 +70,8 @@ class OnboardingScreens: UIViewController {
         headingTitle.text = onboardScreen.name
         details.text = onboardScreen.desc
         startButton.isHidden = true
-        
+    
         // Animation
-        
         if onboardScreen.index == 0 {
             UIView.animate(withDuration: 1.5, delay: 0, options: [.repeat,.autoreverse], animations: {
                 self.illustration.center.y += 20
