@@ -15,8 +15,12 @@ struct APIdetails: Decodable {
 }
 
 struct Covid: Decodable {
+    let CountryCode: String
     let Country: String
     let TotalConfirmed: Int
     let TotalRecovered: Int
     let TotalDeaths: Int
+    let NewConfirmed: Int
+    let NewRecovered: Int
+    let NewDeaths: Int
 }

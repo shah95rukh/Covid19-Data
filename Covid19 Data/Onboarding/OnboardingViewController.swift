@@ -27,22 +27,33 @@ enum Screens: CaseIterable {
     var desc: String {
         switch self {
         case .firstScreen:
-            return "Coronavirus disease\n(COVID-19) is an infectious disease caused by a new virus.\nThe disease causes respiratory illness (like the flu) with symptoms such as a cough, fever, and in more severe cases, difficulty breathing."
+            return "Coronavirus disease (COVID-19) is an infectious disease caused by a new virus.\nThe disease causes respiratory illness (like the flu) with symptoms such as a cough, fever, and in more severe cases, difficulty breathing."
         case .secondScreen:
-            return "Coronavirus disease\nspreads primarily through contact with an infected person when they cough or sneeze. It also spreads when a person touches a surface or object that has the virus on it, then touches their eyes, nose, or mouth."
+            return "Coronavirus disease spreads primarily through contact with an infected person when they cough or sneeze. It also spreads when a person touches a surface or object that has the virus on it, then touches their eyes, nose, or mouth."
         case .thirdScreen:
-            return "You can protect\nyourself by washing your hands frequently, avoiding touching your face, and avoiding close contact (1 meter or 3 feet) with people who are unwell."
+            return "You can protect yourself by washing your hands frequently, avoiding touching your face, and avoiding close contact (1 meter or 3 feet) with people who are unwell."
         }
     }
     
     var iconName: String {
         switch self {
         case .firstScreen:
-            return "virus"
+            return "img1"
         case .secondScreen:
-            return "cough"
+            return "img2"
         case .thirdScreen:
-            return "handwash"
+            return "img3"
+        }
+    }
+    
+    var bgName: UIColor {
+        switch self {
+        case .firstScreen:
+            return .systemIndigo
+        case .secondScreen:
+                return .systemOrange
+        case .thirdScreen:
+            return .systemPink
         }
     }
     
@@ -66,7 +77,7 @@ class OnboardingViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = UIColor.offWhite
+
         self.setupPageController()
     }
     
@@ -74,15 +85,17 @@ class OnboardingViewController: UIViewController {
         self.pageController = UIPageViewController(transitionStyle: .scroll, navigationOrientation: .horizontal, options: nil)
         self.pageController?.dataSource = self
         self.pageController?.delegate = self
-        self.pageController?.view.backgroundColor = .clear
-        self.pageController?.view.frame = CGRect(x: 0,y: 0,width: self.view.frame.width,height: self.view.frame.height)
+        
+        self.pageController?.view.frame = CGRect(x: 0,y: 0,width: view.frame.width,height: view.frame.height)
         
         self.addChild(self.pageController!)
         self.view.addSubview(self.pageController!.view)
         
         let initialVC = OnboardingScreens(with: screens[0])
+        //self.pageController?.view.backgroundColor = initialVC.view.backgroundColor
         self.pageController?.setViewControllers([initialVC], direction: .forward, animated: true, completion: nil)
         self.pageController?.didMove(toParent: self)
+
     }
 }
 

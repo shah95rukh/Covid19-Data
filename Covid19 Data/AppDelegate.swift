@@ -33,9 +33,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 //        self.window?.rootViewController = initialViewController
 //        self.window?.makeKeyAndVisible()
         
-        let pageControl = UIPageControl.appearance()
-        pageControl.currentPageIndicatorTintColor = .black
-        pageControl.pageIndicatorTintColor = .gray
+//        let pageControl = UIPageControl.appearance()
+//        pageControl.currentPageIndicatorTintColor = .white
+//        pageControl.pageIndicatorTintColor = .gray
+        
+        
         return true
     }
 

@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import EMTNeumorphicView
 
 class OnboardingScreens: UIViewController {
     
@@ -22,25 +21,24 @@ class OnboardingScreens: UIViewController {
         fatalError("init(coder:) has not been implemented")
     }
     
-    let cardFrame: EMTNeumorphicView = {
-        let firstView = EMTNeumorphicView()
-        firstView.neumorphicLayer?.cornerRadius = 22.5
-        firstView.translatesAutoresizingMaskIntoConstraints = false
-        return firstView
+    let illustration: UIImageView = {
+        let imageIcon = UIImageView()
+        imageIcon.translatesAutoresizingMaskIntoConstraints = false
+        return imageIcon
     }()
-    
     let headingTitle: UILabel = {
         let heading = UILabel()
-        heading.font = UIFont(name: "Futura-Bold", size: 27)
+        heading.font = UIFont.systemFont(ofSize: 27, weight: .black)
+        heading.textColor = .white
         heading.numberOfLines = 0
         heading.translatesAutoresizingMaskIntoConstraints = false
         return heading
     }()
-    
     let details: UILabel = {
         let description =  UILabel()
         let text = "Hi"
-        description.font = UIFont(name: "Futura", size: 20)
+        description.font = UIFont.systemFont(ofSize: 20, weight: .medium)
+        description.textColor = .white
         description.numberOfLines = 0
         description.translatesAutoresizingMaskIntoConstraints = false
         
@@ -51,23 +49,13 @@ class OnboardingScreens: UIViewController {
         description.attributedText = attributedString
         return description
     }()
-    
-    let iconFrame: EMTNeumorphicButton = {
-        let button = EMTNeumorphicButton(type: .custom)
-        button.contentVerticalAlignment = .fill
-        button.contentHorizontalAlignment = .fill
-        button.imageEdgeInsets = UIEdgeInsets(top: 20, left: 18, bottom: 16, right: 18)
-        button.translatesAutoresizingMaskIntoConstraints = false
-        button.isSelected = true
-        button.neumorphicLayer?.cornerRadius = 22.5
-        return button
-    }()
-    
     let startButton: UIButton = {
         let start = UIButton()
-        start.setTitle("Start", for: .normal)
-        start.titleLabel?.font = UIFont(name: "Futura-Bold", size: 20)
-        start.setTitleColor(.black, for: .normal)
+        start.setTitle("List of countries", for: .normal)
+        start.titleLabel?.font = UIFont.systemFont(ofSize: 20, weight: .bold)
+        start.setTitleColor(.white, for: .normal)
+        start.backgroundColor = .newSystemPink
+        start.layer.cornerRadius = 10
         start.translatesAutoresizingMaskIntoConstraints = false
         start.addTarget(self, action: #selector(tapped), for: .touchUpInside)
         return start
@@ -76,64 +64,63 @@ class OnboardingScreens: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        view.backgroundColor = UIColor.offWhite
-        cardFrame.neumorphicLayer?.elementBackgroundColor = view.backgroundColor?.cgColor ?? UIColor.white.cgColor
-        iconFrame.neumorphicLayer?.elementBackgroundColor = view.backgroundColor?.cgColor ?? UIColor.white.cgColor
-        
+        view.backgroundColor = onboardScreen.bgName
+        illustration.image = UIImage(named: onboardScreen.iconName)
         headingTitle.text = onboardScreen.name
         details.text = onboardScreen.desc
-        iconFrame.setImage(UIImage(named: onboardScreen.iconName), for: .selected)
         startButton.isHidden = true
         
+        // Animation
+        
+        if onboardScreen.index == 0 {
+            UIView.animate(withDuration: 1.5, delay: 0, options: [.repeat,.autoreverse], animations: {
+                self.illustration.center.y += 20
+                
+            }, completion: nil)
+        }
         if onboardScreen.index == 2 {
             startButton.isHidden = false
         }
         
-        view.addSubview(cardFrame)
         view.addSubview(headingTitle)
         view.addSubview(details)
-        view.addSubview(iconFrame)
+        view.addSubview(illustration)
         view.addSubview(startButton)
         
         NSLayoutConstraint.activate([
-            iconFrame.widthAnchor.constraint(equalToConstant: 70),
-            iconFrame.heightAnchor.constraint(equalToConstant: 70),
-            iconFrame.topAnchor.constraint(equalTo: cardFrame.topAnchor, constant: 20),
-            iconFrame.trailingAnchor.constraint(equalTo: cardFrame.trailingAnchor, constant: -20),
+            details.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 35),
+            details.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -35),
             
-            headingTitle.bottomAnchor.constraint(equalTo: cardFrame.topAnchor, constant: -40),
-            headingTitle.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 45),
+            illustration.bottomAnchor.constraint(equalTo: details.topAnchor, constant: -70),
+            illustration.topAnchor.constraint(equalTo: view.topAnchor, constant: 120),
+            illustration.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+            illustration.heightAnchor.constraint(equalToConstant: 210),
+            illustration.widthAnchor.constraint(equalToConstant: 200),
+            
+            headingTitle.bottomAnchor.constraint(equalTo: details.topAnchor, constant: -40),
+            headingTitle.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 35),
             headingTitle.trailingAnchor.constraint(equalTo: view.trailingAnchor),
-            
-            details.topAnchor.constraint(equalTo: cardFrame.topAnchor, constant: 75),
-            details.leadingAnchor.constraint(equalTo: cardFrame.leadingAnchor, constant: 30),
-            details.trailingAnchor.constraint(equalTo: cardFrame.trailingAnchor, constant: -30),
-            
-            cardFrame.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 30),
-            cardFrame.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -30),
-            cardFrame.heightAnchor.constraint(equalToConstant: 400),
-            cardFrame.centerYAnchor.constraint(equalTo: view.centerYAnchor, constant: 70),
-            cardFrame.centerXAnchor.constraint(equalTo: view.centerXAnchor, constant: 0),
-            
-            startButton.topAnchor.constraint(equalTo: cardFrame.bottomAnchor, constant: 40),
-            startButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -40),
+
+            startButton.topAnchor.constraint(equalTo: details.bottomAnchor, constant: 50),
+            startButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -35),
+            startButton.heightAnchor.constraint(equalToConstant: 50),
+            startButton.widthAnchor.constraint(equalToConstant: 190),
         ])
     }
     
     @objc func tapped() {
-        
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        let vc = storyboard.instantiateViewController(withIdentifier: "HomeVC") as! TableViewController
+        let vc = storyboard.instantiateViewController(withIdentifier: "navVC") as! UINavigationController
         self.view.window?.rootViewController = vc
         self.view.window?.makeKeyAndVisible()
-        
-//        let userDefaults = UserDefaults.standard
-//        userDefaults.set(true, forKey: "onboardingComplete")
-//        userDefaults.synchronize()
     }
 }
 
 extension UIColor {
     static let offWhite = UIColor(red: 225/255, green: 225/255, blue: 235/255, alpha: 1.0)
-    // static let lightBlue = UIColor(red: 0.91, green: 0.93, blue: 0.95, alpha: 1.0)
+    static let bluishPurple = UIColor(red: 0.33, green: 0.42, blue: 0.86, alpha: 1.0)
+    static let newSystemPink = UIColor(red:1.00, green:0.42, blue:0.53, alpha:1.00)
+    static let newSystemIndigo = UIColor(red:0.35, green:0.34, blue:0.84, alpha:0.80)
+    static let newSystemOrange = UIColor(red:1.00, green:0.58, blue:0.00, alpha:0.80)
+    static let alagPink = UIColor(red:1.00, green:0.45, blue:0.66, alpha:1.00)
 }
