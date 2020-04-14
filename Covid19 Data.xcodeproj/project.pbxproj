@@ -3,17 +3,23 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 51;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
 		AE02286F242D538800BBA6E0 /* TableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE02286E242D538800BBA6E0 /* TableViewController.swift */; };
 		AE385C9D2431489400F6407D /* CovidAPIResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE385C9C2431489400F6407D /* CovidAPIResponse.swift */; };
 		AE385CA12431490200F6407D /* CovidNetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE385CA02431490200F6407D /* CovidNetworkManager.swift */; };
+		AE4224C52442F86600C57B5E /* 17476-loading.json in Resources */ = {isa = PBXBuildFile; fileRef = AE4224C42442F86500C57B5E /* 17476-loading.json */; };
 		AE487486243069FA00583995 /* CovidDataCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE487485243069FA00583995 /* CovidDataCell.swift */; };
+		AE553158244228E40029A54F /* DetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE553157244228E40029A54F /* DetailsViewController.swift */; };
+		AE5FEAE42432CA2C00A80C3D /* CovidDataSet.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE5FEAE32432CA2C00A80C3D /* CovidDataSet.swift */; };
+		AE6A6CC12446439500BF0AC5 /* 18168-stay-safe-stay-home.json in Resources */ = {isa = PBXBuildFile; fileRef = AE6A6CC02446439500BF0AC5 /* 18168-stay-safe-stay-home.json */; };
+		AE8E55EA24430CB700736660 /* SwiftUICharts in Frameworks */ = {isa = PBXBuildFile; productRef = AE8E55E924430CB700736660 /* SwiftUICharts */; };
+		AE91761A24318A96003D4DD9 /* OnboardingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE91761924318A96003D4DD9 /* OnboardingViewController.swift */; };
+		AE91761C2431B146003D4DD9 /* OnboardingScreens.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE91761B2431B146003D4DD9 /* OnboardingScreens.swift */; };
 		AED638C2242B2457001E8162 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AED638C1242B2457001E8162 /* AppDelegate.swift */; };
 		AED638C4242B2457001E8162 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AED638C3242B2457001E8162 /* SceneDelegate.swift */; };
-		AED638C6242B2457001E8162 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AED638C5242B2457001E8162 /* ViewController.swift */; };
 		AED638C9242B2457001E8162 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AED638C7242B2457001E8162 /* Main.storyboard */; };
 		AED638CB242B2458001E8162 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AED638CA242B2458001E8162 /* Assets.xcassets */; };
 		AED638CE242B2458001E8162 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AED638CC242B2458001E8162 /* LaunchScreen.storyboard */; };
@@ -24,11 +30,16 @@
 		AE02286E242D538800BBA6E0 /* TableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewController.swift; sourceTree = "<group>"; };
 		AE385C9C2431489400F6407D /* CovidAPIResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CovidAPIResponse.swift; sourceTree = "<group>"; };
 		AE385CA02431490200F6407D /* CovidNetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CovidNetworkManager.swift; sourceTree = "<group>"; };
+		AE4224C42442F86500C57B5E /* 17476-loading.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "17476-loading.json"; sourceTree = "<group>"; };
 		AE487485243069FA00583995 /* CovidDataCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CovidDataCell.swift; sourceTree = "<group>"; };
+		AE553157244228E40029A54F /* DetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsViewController.swift; sourceTree = "<group>"; };
+		AE5FEAE32432CA2C00A80C3D /* CovidDataSet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CovidDataSet.swift; sourceTree = "<group>"; };
+		AE6A6CC02446439500BF0AC5 /* 18168-stay-safe-stay-home.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "18168-stay-safe-stay-home.json"; sourceTree = "<group>"; };
+		AE91761924318A96003D4DD9 /* OnboardingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingViewController.swift; sourceTree = "<group>"; };
+		AE91761B2431B146003D4DD9 /* OnboardingScreens.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingScreens.swift; sourceTree = "<group>"; };
 		AED638BE242B2457001E8162 /* Covid19 Data.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Covid19 Data.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		AED638C1242B2457001E8162 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		AED638C3242B2457001E8162 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		AED638C5242B2457001E8162 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		AED638C8242B2457001E8162 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		AED638CA242B2458001E8162 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		AED638CD242B2458001E8162 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -44,6 +55,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				C5F273DE9ED53FC6090AAD19 /* Pods_Covid19_Data.framework in Frameworks */,
+				AE8E55EA24430CB700736660 /* SwiftUICharts in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -62,6 +74,7 @@
 		AE385C9B243147EF00F6407D /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				AE5FEAE32432CA2C00A80C3D /* CovidDataSet.swift */,
 				AE385C9C2431489400F6407D /* CovidAPIResponse.swift */,
 			);
 			path = Models;
@@ -73,6 +86,34 @@
 				AE385CA02431490200F6407D /* CovidNetworkManager.swift */,
 			);
 			path = Managers;
+			sourceTree = "<group>";
+		};
+		AE68BC6E244654B600DCE36D /* LottieFiles */ = {
+			isa = PBXGroup;
+			children = (
+				AE4224C42442F86500C57B5E /* 17476-loading.json */,
+				AE6A6CC02446439500BF0AC5 /* 18168-stay-safe-stay-home.json */,
+			);
+			path = LottieFiles;
+			sourceTree = "<group>";
+		};
+		AE68BC6F244655DF00DCE36D /* Storyboards */ = {
+			isa = PBXGroup;
+			children = (
+				AED638C7242B2457001E8162 /* Main.storyboard */,
+				AED638CC242B2458001E8162 /* LaunchScreen.storyboard */,
+			);
+			path = Storyboards;
+			sourceTree = "<group>";
+		};
+		AE68BC70244656C200DCE36D /* SupportingFiles */ = {
+			isa = PBXGroup;
+			children = (
+				AED638C1242B2457001E8162 /* AppDelegate.swift */,
+				AED638C3242B2457001E8162 /* SceneDelegate.swift */,
+				AED638CA242B2458001E8162 /* Assets.xcassets */,
+			);
+			path = SupportingFiles;
 			sourceTree = "<group>";
 		};
 		AED638B5242B2457001E8162 = {
@@ -96,15 +137,13 @@
 		AED638C0242B2457001E8162 /* Covid19 Data */ = {
 			isa = PBXGroup;
 			children = (
-				AEF7C5DE24315CA40016D237 /* Onboarding */,
 				AEF7C5DD24315C150016D237 /* CovidList */,
+				AE68BC6E244654B600DCE36D /* LottieFiles */,
 				AE385C9E2431489E00F6407D /* Managers */,
 				AE385C9B243147EF00F6407D /* Models */,
-				AED638C1242B2457001E8162 /* AppDelegate.swift */,
-				AED638C3242B2457001E8162 /* SceneDelegate.swift */,
-				AED638C7242B2457001E8162 /* Main.storyboard */,
-				AED638CA242B2458001E8162 /* Assets.xcassets */,
-				AED638CC242B2458001E8162 /* LaunchScreen.storyboard */,
+				AEF7C5DE24315CA40016D237 /* Onboarding */,
+				AE68BC6F244655DF00DCE36D /* Storyboards */,
+				AE68BC70244656C200DCE36D /* SupportingFiles */,
 				AED638CF242B2458001E8162 /* Info.plist */,
 			);
 			path = "Covid19 Data";
@@ -115,6 +154,7 @@
 			children = (
 				AE487485243069FA00583995 /* CovidDataCell.swift */,
 				AE02286E242D538800BBA6E0 /* TableViewController.swift */,
+				AE553157244228E40029A54F /* DetailsViewController.swift */,
 			);
 			path = CovidList;
 			sourceTree = "<group>";
@@ -122,7 +162,8 @@
 		AEF7C5DE24315CA40016D237 /* Onboarding */ = {
 			isa = PBXGroup;
 			children = (
-				AED638C5242B2457001E8162 /* ViewController.swift */,
+				AE91761924318A96003D4DD9 /* OnboardingViewController.swift */,
+				AE91761B2431B146003D4DD9 /* OnboardingScreens.swift */,
 			);
 			path = Onboarding;
 			sourceTree = "<group>";
@@ -153,6 +194,9 @@
 			dependencies = (
 			);
 			name = "Covid19 Data";
+			packageProductDependencies = (
+				AE8E55E924430CB700736660 /* SwiftUICharts */,
+			);
 			productName = "Covid19 Data";
 			productReference = AED638BE242B2457001E8162 /* Covid19 Data.app */;
 			productType = "com.apple.product-type.application";
@@ -181,6 +225,9 @@
 				Base,
 			);
 			mainGroup = AED638B5242B2457001E8162;
+			packageReferences = (
+				AE8E55E824430CB700736660 /* XCRemoteSwiftPackageReference "ChartView" */,
+			);
 			productRefGroup = AED638BF242B2457001E8162 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -198,6 +245,8 @@
 				AED638CE242B2458001E8162 /* LaunchScreen.storyboard in Resources */,
 				AED638CB242B2458001E8162 /* Assets.xcassets in Resources */,
 				AED638C9242B2457001E8162 /* Main.storyboard in Resources */,
+				AE6A6CC12446439500BF0AC5 /* 18168-stay-safe-stay-home.json in Resources */,
+				AE4224C52442F86600C57B5E /* 17476-loading.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -250,13 +299,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				AED638C6242B2457001E8162 /* ViewController.swift in Sources */,
+				AE91761C2431B146003D4DD9 /* OnboardingScreens.swift in Sources */,
 				AE385CA12431490200F6407D /* CovidNetworkManager.swift in Sources */,
 				AED638C2242B2457001E8162 /* AppDelegate.swift in Sources */,
+				AE91761A24318A96003D4DD9 /* OnboardingViewController.swift in Sources */,
 				AED638C4242B2457001E8162 /* SceneDelegate.swift in Sources */,
 				AE487486243069FA00583995 /* CovidDataCell.swift in Sources */,
 				AE02286F242D538800BBA6E0 /* TableViewController.swift in Sources */,
+				AE5FEAE42432CA2C00A80C3D /* CovidDataSet.swift in Sources */,
 				AE385C9D2431489400F6407D /* CovidAPIResponse.swift in Sources */,
+				AE553158244228E40029A54F /* DetailsViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -411,7 +463,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "com.srk.Covid19-Data";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -430,7 +482,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "com.srk.Covid19-Data";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
@@ -456,6 +508,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		AE8E55E824430CB700736660 /* XCRemoteSwiftPackageReference "ChartView" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/AppPear/ChartView";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.5.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		AE8E55E924430CB700736660 /* SwiftUICharts */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = AE8E55E824430CB700736660 /* XCRemoteSwiftPackageReference "ChartView" */;
+			productName = SwiftUICharts;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = AED638B6242B2457001E8162 /* Project object */;
 }

@@ -11,10 +11,33 @@ import UIKit
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
-
+    var window: UIWindow?
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+        
+//        self.window = UIWindow(frame: UIScreen.main.bounds)
+//        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+//
+//        var initialViewController: UIViewController
+//
+//        if UserDefaults.standard.bool(forKey: "onboardingComplete") == true {
+//            print(UserDefaults.standard.bool(forKey: "onboardingComplete"))
+//            initialViewController = storyboard.instantiateViewController(identifier: "HomeVC") as TableViewController
+//            //initialViewController = storyboard.instantiateInitialViewController()!
+//        } else {
+//            print("OnboardingComplete? - ", UserDefaults.standard.bool(forKey: "onboardingComplete"))
+//            initialViewController = storyboard.instantiateViewController(identifier: "OnboardingVC") as OnboardingViewController
+//        }
+//
+//        self.window?.rootViewController = initialViewController
+//        self.window?.makeKeyAndVisible()
+        
+//        let pageControl = UIPageControl.appearance()
+//        pageControl.currentPageIndicatorTintColor = .white
+//        pageControl.pageIndicatorTintColor = .gray
+        
+        
         return true
     }
 
