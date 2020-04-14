@@ -13,16 +13,7 @@ import Lottie
 class DetailsViewController: UIViewController {
     var totalDataRow: [String: Int] = [:]
     var newDataRow: [String: Int] = [:]
-    
-    let countryName: UILabel = {
-        let label = UILabel()
-        label.textColor = .black
-        label.numberOfLines = 0
-        label.textAlignment = .left
-        label.font = UIFont.systemFont(ofSize: 24, weight: .bold)
-        label.translatesAutoresizingMaskIntoConstraints = false
-        return label
-    }()
+    let countryName = UILabel()
     
     func setUpData(covid: CovidDataModel)  {
         countryName.text = covid.countryArray
@@ -114,32 +105,40 @@ class DetailsViewController: UIViewController {
         return stackView
     }()
     
-    let titleStack: UIStackView = {
-        let stackView = UIStackView()
-        stackView.translatesAutoresizingMaskIntoConstraints = false
-        stackView.axis = .horizontal
-        stackView.distribution = .fillEqually
-        stackView.spacing = 10
-        return stackView
-    }()
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .white
-        self.navigationItem.title = "Details"
-                
-        titleStack.addArrangedSubview(countryName)
-        EntireStackView.addArrangedSubview(titleStack)
+        self.navigationItem.title = countryName.text
+        let screenHeight = UIScreen.main.bounds.height
+        
+        // Adds Lottie animation at the bottom of the screen
+        let animationView = AnimationView(name: "18168-stay-safe-stay-home")
+        animationView.translatesAutoresizingMaskIntoConstraints = false
+        animationView.play()
+        animationView.contentMode = .scaleAspectFit
+        animationView.center = view.center
+        animationView.loopMode = .loop
+        view.addSubview(animationView)
+
+        // Slides the stack in from right
+        UIView.animate(withDuration: 0.41) {
+            self.EntireStackView.center.x -= self.view.center.x
+        }
+        
         EntireStackView.addArrangedSubview(stackRow(myRow: totalDataRow, cardBackground: [UIColor.systemIndigo, UIColor.systemPink, UIColor.systemOrange]))
         EntireStackView.addArrangedSubview(stackRow(myRow: newDataRow, cardBackground: [UIColor.systemBlue, UIColor.systemPurple, UIColor.systemGreen]))
-
         view.addSubview(EntireStackView)
         
         NSLayoutConstraint.activate([
-            EntireStackView.topAnchor.constraint(equalTo: view.topAnchor, constant: 150),
             EntireStackView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 30),
             EntireStackView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -30),
-            EntireStackView.heightAnchor.constraint(equalToConstant: 520),
+            EntireStackView.bottomAnchor.constraint(equalTo: animationView.topAnchor, constant: -30),
+            EntireStackView.heightAnchor.constraint(equalToConstant: screenHeight * 0.4),
+            
+            animationView.heightAnchor.constraint(equalToConstant: screenHeight * 0.3),
+            animationView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 30),
+            animationView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -30),
+            animationView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -20),
         ])
     }
 }

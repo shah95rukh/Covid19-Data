@@ -44,7 +44,7 @@ class TableViewController: UITableViewController, UISearchResultsUpdating {
         
         view.backgroundColor = UIColor.white
         animationView.animation = Animation.named("17476-loading")
-        animationView.frame = CGRect(x: 0, y: 0, width: 100, height: 50)
+        animationView.frame = CGRect(x: 0, y: 0, width: 120, height: 65)
         animationView.center.x = view.center.x
         animationView.center.y = view.center.y - 100
         animationView.contentMode = .scaleAspectFill
@@ -82,7 +82,6 @@ class TableViewController: UITableViewController, UISearchResultsUpdating {
     
 
     // MARK: - Table view data source
-
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if isFiltering {
             return filteredCountries.count
@@ -142,11 +141,9 @@ class TableViewController: UITableViewController, UISearchResultsUpdating {
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as? CovidDataCell else { fatalError("Issue dequeuing cell") }
         
         let covid: CovidDataModel
-        
         if isFiltering {
             covid = filteredCountries[indexPath.row]
         } else {
@@ -156,18 +153,19 @@ class TableViewController: UITableViewController, UISearchResultsUpdating {
         // To prevent crashing incase some country's flag doesn't exist
         let flag = Flag(countryCode: covid.CountryCodeArray) ?? Flag(countryCode: "CA")
         flagImage = flag!.originalImage
-        
         cell.flag.image = flagImage
         cell.countryLabel.text = covid.countryArray
         cell.confimredLabel.text = "\(covid.totalConfirmedArray)"
         cell.deathsLabel.text = "\(covid.totalDeathsArray)"
         
+        // Stops loading animation when data is loaded
         self.animationView.stop()
         self.animationView.removeFromSuperview()
         
         return cell
     }
     
+    // Passes data to the DetailsViewController
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let detailsVC = DetailsViewController()
         let covid: CovidDataModel
@@ -179,6 +177,19 @@ class TableViewController: UITableViewController, UISearchResultsUpdating {
         }
         detailsVC.setUpData(covid: covid)
         self.navigationController?.pushViewController(detailsVC, animated: true)
+    }
+    
+    override func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        // Animates uitableviewcells
+        if !searchController.isActive {
+            let rotationTransform = CATransform3DTranslate(CATransform3DIdentity, 0, 20, 0)
+            cell.layer.transform = rotationTransform
+            cell.alpha = 0
+            UIView.animate(withDuration: 0.5) {
+                cell.layer.transform = CATransform3DIdentity
+                cell.alpha = 1
+            }
+        }
     }
     
 }

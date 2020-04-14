@@ -68,12 +68,5 @@ class CovidDataCell: UITableViewCell {
             confimredLabel.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -15),
             confimredLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -105),
         ])
-        
-    }
-
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
     }
 }

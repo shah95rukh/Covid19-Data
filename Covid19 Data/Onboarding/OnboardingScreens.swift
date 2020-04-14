@@ -64,14 +64,14 @@ class OnboardingScreens: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        let screenHeight = UIScreen.main.bounds.height
         view.backgroundColor = onboardScreen.bgName
         illustration.image = UIImage(named: onboardScreen.iconName)
         headingTitle.text = onboardScreen.name
         details.text = onboardScreen.desc
         startButton.isHidden = true
     
-        // Animation
+        // Animation for moving Covid19 illustration
         if onboardScreen.index == 0 {
             UIView.animate(withDuration: 1.5, delay: 0, options: [.repeat,.autoreverse], animations: {
                 self.illustration.center.y += 20
@@ -91,11 +91,11 @@ class OnboardingScreens: UIViewController {
             details.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 35),
             details.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -35),
             
+            illustration.topAnchor.constraint(equalTo: view.topAnchor, constant: 100),
             illustration.bottomAnchor.constraint(equalTo: details.topAnchor, constant: -70),
-            illustration.topAnchor.constraint(equalTo: view.topAnchor, constant: 120),
             illustration.trailingAnchor.constraint(equalTo: view.trailingAnchor),
-            illustration.heightAnchor.constraint(equalToConstant: 210),
-            illustration.widthAnchor.constraint(equalToConstant: 200),
+            illustration.heightAnchor.constraint(equalToConstant: (screenHeight * 0.2)+10),
+            illustration.widthAnchor.constraint(equalToConstant: screenHeight * 0.2),
             
             headingTitle.bottomAnchor.constraint(equalTo: details.topAnchor, constant: -40),
             headingTitle.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 35),
