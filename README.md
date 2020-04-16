@@ -10,6 +10,6 @@ The app retrieves the list from https://covid19api.com/ API and sorts it by the 
   1. Install CocoaPods on your machine. `sudo gem install cocoapods`
   2. cd to the root directory and do `pod install`
   3. Open the `.xcworkspace` to run the app. Not the `.xcodeproj`
-
+  
 
 Built by Syed Shahrukh Ahmed
