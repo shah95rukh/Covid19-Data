@@ -14,6 +14,7 @@
 		AE487486243069FA00583995 /* CovidDataCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE487485243069FA00583995 /* CovidDataCell.swift */; };
 		AE553158244228E40029A54F /* DetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE553157244228E40029A54F /* DetailsViewController.swift */; };
 		AE5FEAE42432CA2C00A80C3D /* CovidDataSet.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE5FEAE32432CA2C00A80C3D /* CovidDataSet.swift */; };
+		AE68BC722446C70200DCE36D /* ScreensDataSet.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE68BC712446C70200DCE36D /* ScreensDataSet.swift */; };
 		AE6A6CC12446439500BF0AC5 /* 18168-stay-safe-stay-home.json in Resources */ = {isa = PBXBuildFile; fileRef = AE6A6CC02446439500BF0AC5 /* 18168-stay-safe-stay-home.json */; };
 		AE8E55EA24430CB700736660 /* SwiftUICharts in Frameworks */ = {isa = PBXBuildFile; productRef = AE8E55E924430CB700736660 /* SwiftUICharts */; };
 		AE91761A24318A96003D4DD9 /* OnboardingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE91761924318A96003D4DD9 /* OnboardingViewController.swift */; };
@@ -34,6 +35,7 @@
 		AE487485243069FA00583995 /* CovidDataCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CovidDataCell.swift; sourceTree = "<group>"; };
 		AE553157244228E40029A54F /* DetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsViewController.swift; sourceTree = "<group>"; };
 		AE5FEAE32432CA2C00A80C3D /* CovidDataSet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CovidDataSet.swift; sourceTree = "<group>"; };
+		AE68BC712446C70200DCE36D /* ScreensDataSet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScreensDataSet.swift; sourceTree = "<group>"; };
 		AE6A6CC02446439500BF0AC5 /* 18168-stay-safe-stay-home.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "18168-stay-safe-stay-home.json"; sourceTree = "<group>"; };
 		AE91761924318A96003D4DD9 /* OnboardingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingViewController.swift; sourceTree = "<group>"; };
 		AE91761B2431B146003D4DD9 /* OnboardingScreens.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingScreens.swift; sourceTree = "<group>"; };
@@ -76,6 +78,7 @@
 			children = (
 				AE5FEAE32432CA2C00A80C3D /* CovidDataSet.swift */,
 				AE385C9C2431489400F6407D /* CovidAPIResponse.swift */,
+				AE68BC712446C70200DCE36D /* ScreensDataSet.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -308,6 +311,7 @@
 				AE02286F242D538800BBA6E0 /* TableViewController.swift in Sources */,
 				AE5FEAE42432CA2C00A80C3D /* CovidDataSet.swift in Sources */,
 				AE385C9D2431489400F6407D /* CovidAPIResponse.swift in Sources */,
+				AE68BC722446C70200DCE36D /* ScreensDataSet.swift in Sources */,
 				AE553158244228E40029A54F /* DetailsViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
